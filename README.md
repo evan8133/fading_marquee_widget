@@ -6,7 +6,7 @@ _Appreciate my work? Show some ❤️ and star the repo to support this package.
 
 ### Here is the working video of this package
 
-<img src="fading_marquee_widget_demo.gif" width="300" height="633" />
+<img src="https://github.com/pratikPSB/fading_marquee_widget/blob/master/fading_marquee_widget_demo.gif?raw=true" height="400"  alt="working demo of my package"/>
 
 ### Installation Guide
 
