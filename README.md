@@ -32,36 +32,29 @@ import 'package:fading_marquee_widget/fading_marquee_widget.dart';
 #### simple usage
 
 ```dart
-FadingMarqueeWidget
-(
-child: Text(
-"very very very very very very very very very very long text.",
-style: TextStyle(color: Colors.white),
-),
+FadingMarqueeWidget(
+   child: Text(
+      "very very very very very very very very very very long text.",
+      style: TextStyle(color: Colors.white),
+   ),
 )
 ```
 
 #### full use of the package's customizability
 
 ```dart
-FadingMarqueeWidget
-(
-duration: Duration(seconds: 5),
-scrollDirection: Axis.horizontal,
-gap: 100,
-pause: Duration(milliseconds: 50),
-delay: Duration(milliseconds: 50),
-disableAnimation: false,
-id: "any static id in string to avoid false build",
-child: Text(
-"Duration of the animation is 5 seconds. The default duration is 10 seconds. very very very very very very very very very very long text.",
-style: TextStyle(color: Colors
-.
-white
-)
-,
-)
-,
+FadingMarqueeWidget(
+   duration: Duration(seconds: 5),
+   scrollDirection: Axis.horizontal,
+   gap: 100,
+   pause: Duration(milliseconds: 50),
+   delay: Duration(milliseconds: 50),
+   disableAnimation: false,
+   id: "any static id in string to avoid false build",
+   child: Text(
+      "Duration of the animation is 5 seconds. The default duration is 10 seconds. very very very very very very very very very very long text.",
+      style: TextStyle(color: Colors.white),
+   ),
 )
 ```
 
