@@ -1,9 +1,6 @@
 import 'package:fading_marquee_widget/fading_marquee_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:plugin_platform_interface/plugin_platform_interface.dart';
-
-class MockFadingMarqueeWidgetPlatform with MockPlatformInterfaceMixin {}
 
 void main() {
   testWidgets(
