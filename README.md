@@ -6,7 +6,7 @@ _Appreciate my work? Show some ❤️ and star the repo to support this package.
 
 ### Here is the working video of this package
 
-[see the demo video](fading_marquee_widget_demo.gif)
+<img src="fading_marquee_widget_demo.gif" width="300" height="633" />
 
 ### Installation Guide
 
