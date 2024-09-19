@@ -22,8 +22,8 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest, macOS-latest]
-        node-version: [10]
         dart-version: [stable]
+        flutter-version: [stable]
         # For now, code-version will mirror dart-version to reduce the number of bots
         # code-version: [stable] #, insiders]
         bot: [flutter_debug, flutter_debug_chrome, flutter_test_debug, dart_web_debug, flutter_repo, dart_debug, dart, flutter, misc]
@@ -33,38 +33,15 @@ jobs:
             code-version: stable
 
     steps:
-      - uses: actions/checkout@v3
-
-      # Note: This workflow uses the latest stable version of the Dart SDK.
-      # You can specify other versions if desired, see documentation here:
-      # https://github.com/dart-lang/setup-dart/blob/main/README.md
-      # - uses: dart-lang/setup-dart@v1
-      - uses: dart-lang/setup-dart@9a04e6d73cca37bd455e0608d7e5092f881fd603
-
-      - name: Setup XVFB
-        if: matrix.os == 'ubuntu-latest'
-        run: Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
-
-      - name: Setup Chrome
-        if: matrix.os == 'macOS-latest'
-        run: brew update && brew cask install google-chrome
+      - name: Clone repository
+        uses: actions/checkout@v4
         
-      - name: Setup Node v${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
         with:
-          node-version: ${{ matrix.node-version }}
-
-      - name: Setup Dart ${{ matrix.dart-version }}
-        uses: DanTup/gh-actions/setup-dart@master
-        with:
-          channel: ${{ matrix.dart-version }}
-
-      - name: Setup Flutter ${{ matrix.flutter-version }}
-        id: flutter
-        if: "!startsWith(matrix.bot, 'dart')"
-        uses: DanTup/gh-actions/setup-flutter@master
-        with:
-          channel: ${{ matrix.flutter-version }}
+        channel: stable
+          flutter-version-file: pubspec.yaml
+      - run: flutter --version
 
       - name: Install dependencies
         run: flutter pub get
