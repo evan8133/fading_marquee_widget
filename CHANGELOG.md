@@ -15,3 +15,7 @@
 
 * Minimum supported dart version is 3.8.0.
 * updated the version of flutter lints from 4.0.0 to 6.0.0.
+
+## 1.0.3+1
+
+* Reformatted the package with dart format.

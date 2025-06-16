@@ -102,7 +102,7 @@ class _FadingMarqueeWidgetState extends State<FadingMarqueeWidget>
     super.didUpdateWidget(oldWidget);
   }
 
-  animationHandler() async {
+  Future<void> animationHandler() async {
     if (scrollController.position.maxScrollExtent > 0) {
       shouldScroll.value = true;
 
@@ -158,39 +158,31 @@ class _FadingMarqueeWidgetState extends State<FadingMarqueeWidget>
     );
   }
 
-  buildHorizontalWidget(bool shouldScroll) => Row(
-        children: [
-          Padding(
-            padding: EdgeInsets.only(
-              right: shouldScroll ? widget.gap : 0,
-            ),
-            child: widget.child,
-          ),
-          if (shouldScroll)
-            Padding(
-              padding: EdgeInsets.only(
-                right: widget.gap,
-              ),
-              child: widget.child,
-            ),
-        ],
-      );
+  Row buildHorizontalWidget(bool shouldScroll) => Row(
+    children: [
+      Padding(
+        padding: EdgeInsets.only(right: shouldScroll ? widget.gap : 0),
+        child: widget.child,
+      ),
+      if (shouldScroll)
+        Padding(
+          padding: EdgeInsets.only(right: widget.gap),
+          child: widget.child,
+        ),
+    ],
+  );
 
-  buildVerticalWidget(bool shouldScroll) => Column(
-        children: [
-          Padding(
-            padding: EdgeInsets.only(
-              bottom: shouldScroll ? widget.gap : 0,
-            ),
-            child: widget.child,
-          ),
-          if (shouldScroll)
-            Padding(
-              padding: EdgeInsets.only(
-                bottom: widget.gap,
-              ),
-              child: widget.child,
-            ),
-        ],
-      );
+  Column buildVerticalWidget(bool shouldScroll) => Column(
+    children: [
+      Padding(
+        padding: EdgeInsets.only(bottom: shouldScroll ? widget.gap : 0),
+        child: widget.child,
+      ),
+      if (shouldScroll)
+        Padding(
+          padding: EdgeInsets.only(bottom: widget.gap),
+          child: widget.child,
+        ),
+    ],
+  );
 }
