@@ -10,3 +10,8 @@
 ## 1.0.2
 
 * Updated the example. There is no code change.
+
+## 1.0.3
+
+* Minimum supported dart version is 3.8.0.
+* updated the version of flutter lints from 4.0.0 to 6.0.0.
