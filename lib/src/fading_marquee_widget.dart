@@ -1,7 +1,8 @@
 import 'dart:async';
 
-import 'package:fading_edge_scrollview/fading_edge_scrollview.dart';
 import 'package:flutter/material.dart';
+
+import 'fading_edge_scroll_view.dart';
 
 class FadingMarqueeWidget extends StatefulWidget {
   /// widget which is wanted to scroll automatically

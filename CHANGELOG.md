@@ -19,3 +19,7 @@
 ## 1.0.3+1
 
 * Reformatted the package with dart format.
+
+## 1.1.0
+
+* Removed 3rd party package dependency as that was less maintained.
