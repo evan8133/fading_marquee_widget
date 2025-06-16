@@ -1,12 +1,6 @@
 # fading_marquee_widget
 
-This package I have made for apply the marquee effect for the very long widget.
-
-_Appreciate my work? Show some ❤️ and star the repo to support this package._
-
-### Here is the working video of this package
-
-<img src="https://github.com/pratikPSB/fading_marquee_widget/blob/master/fading_marquee_widget_demo.gif?raw=true" height="400"  alt="working demo of my package"/>
+This package I have made for apply the marquee (scrolling effect in one line) effect for the very long widget.
 
 ### Installation Guide
 
@@ -57,6 +51,10 @@ FadingMarqueeWidget(
    ),
 )
 ```
+_Appreciate my work? Show some ❤️ and star the repo to support this package._
 
-For more information about the properties, look at
-the [API reference](https://pub.dev/documentation/fading_marquee_widget/latest/).
+### Here is the working video of this package
+
+<img src="https://github.com/pratikPSB/fading_marquee_widget/blob/master/fading_marquee_widget_demo.gif?raw=true" height="400"  alt="working demo of my package"/>
+
+For more information about the properties, look at the [API reference](https://pub.dev/documentation/fading_marquee_widget/latest/).
