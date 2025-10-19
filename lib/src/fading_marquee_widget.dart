@@ -63,18 +63,6 @@ class _FadingMarqueeWidgetState extends State<FadingMarqueeWidget>
       vsync: this,
     );
 
-    if (widget.scrollDirection == Axis.horizontal) {
-      offset = Tween<Offset>(
-        begin: Offset.zero,
-        end: const Offset(-.5, 0),
-      ).animate(animationController);
-    } else if (widget.scrollDirection == Axis.vertical) {
-      offset = Tween<Offset>(
-        begin: Offset.zero,
-        end: const Offset(0, -.5),
-      ).animate(animationController);
-    }
-
     scrollController = ScrollController();
     if (!widget.disableAnimation) {
       WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
@@ -83,6 +71,28 @@ class _FadingMarqueeWidgetState extends State<FadingMarqueeWidget>
     }
 
     super.initState();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _updateAnimationOffset();
+  }
+
+  void _updateAnimationOffset() {
+    final isRTL = Directionality.of(context) == TextDirection.rtl;
+    
+    if (widget.scrollDirection == Axis.horizontal) {
+      offset = Tween<Offset>(
+        begin: Offset.zero,
+        end: isRTL ? const Offset(.5, 0) : const Offset(-.5, 0),
+      ).animate(animationController);
+    } else if (widget.scrollDirection == Axis.vertical) {
+      offset = Tween<Offset>(
+        begin: Offset.zero,
+        end: const Offset(0, -.5),
+      ).animate(animationController);
+    }
   }
 
   @override
@@ -159,19 +169,24 @@ class _FadingMarqueeWidgetState extends State<FadingMarqueeWidget>
     );
   }
 
-  Row buildHorizontalWidget(bool shouldScroll) => Row(
-    children: [
-      Padding(
-        padding: EdgeInsets.only(right: shouldScroll ? widget.gap : 0),
-        child: widget.child,
-      ),
-      if (shouldScroll)
+  Row buildHorizontalWidget(bool shouldScroll) {
+    return Row(
+      textDirection: Directionality.of(context),
+      children: [
         Padding(
-          padding: EdgeInsets.only(right: widget.gap),
+          padding: EdgeInsetsDirectional.only(
+            end: shouldScroll ? widget.gap : 0,
+          ),
           child: widget.child,
         ),
-    ],
-  );
+        if (shouldScroll)
+          Padding(
+            padding: EdgeInsetsDirectional.only(end: widget.gap),
+            child: widget.child,
+          ),
+      ],
+    );
+  }
 
   Column buildVerticalWidget(bool shouldScroll) => Column(
     children: [
