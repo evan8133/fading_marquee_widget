@@ -48,7 +48,7 @@ class FadingMarqueeWidget extends StatefulWidget {
 class _FadingMarqueeWidgetState extends State<FadingMarqueeWidget>
     with SingleTickerProviderStateMixin {
   late final AnimationController animationController;
-  late final Animation<Offset> offset;
+  late Animation<Offset> offset;
   late final ScrollController scrollController;
 
   String id = '';
